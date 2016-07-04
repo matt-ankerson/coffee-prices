@@ -1,5 +1,5 @@
 /* global angular */
-'use strict'
+'use strict';
 
 /**
  * @ngdoc service
@@ -9,10 +9,8 @@
  * Service in the coffeePricingApp
  */
 angular.module('coffeePricingApp')
-    .service('authService', function($q) {
+    .service('authService', function() {
     
-    var self = this;
-
     this.username = 'username';
     this.password = 'password';
 
@@ -23,5 +21,5 @@ angular.module('coffeePricingApp')
         else {
             return false;
         }
-    }
+    };
 });

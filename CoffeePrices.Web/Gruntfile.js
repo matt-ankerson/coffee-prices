@@ -276,8 +276,9 @@ module.exports = function (grunt) {
         flow: {
           html: {
             steps: {
-              js: ['concat', 'uglifyjs'],
-              css: ['cssmin']
+             // js: ['concat', 'uglifyjs'],
+              css: ['concat'],
+              js: ['concat']
             },
             post: {}
           }
@@ -327,6 +328,14 @@ module.exports = function (grunt) {
     // concat: {
     //   dist: {}
     // },
+    //
+    nwjs: {
+            options: {
+                platforms: ['win'],
+                buildDir: './webkitbuilds', // Where the build version of my NW.js app is saved
+            },
+            src: ['<%= yeoman.dist %>/nw'] // Your NW.js app
+        },
 
     imagemin: {
       dist: {
@@ -396,8 +405,10 @@ module.exports = function (grunt) {
           cwd: '<%= yeoman.app %>',
           dest: '<%= yeoman.dist %>',
           src: [
-            '*.{ico,png,txt}',
+            '*.{ico,png,txt,json}',
+            '.htaccess',
             '*.html',
+            'views/{,*/}*.html',
             'images/{,*/}*.{webp}',
             'styles/fonts/{,*/}*.*'
           ]
@@ -485,17 +496,17 @@ module.exports = function (grunt) {
     'ngAnnotate',
     'copy:dist',
     'cdnify',
-    'cssmin',
-    'uglify',
-    'filerev',
+//    'cssmin',
+//    'uglify',
+//    'filerev',
     'usemin',
     'htmlmin'
   ]);
 
   grunt.registerTask('default', [
     'newer:jshint',
-    'newer:jscs',
-    'test',
+    //'newer:jscs',
+    //'test',
     'build'
   ]);
 };

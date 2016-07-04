@@ -12,7 +12,7 @@ angular.module('coffeePricingApp')
         $scope.login = function () {
             if (authService.credentialsValid($scope.username, $scope.password)) {
                 var user = {username: $scope.username};
-                $cookieStore.put("user", user);
+                $cookieStore.put('user', user);
                 $rootScope.user = user;
                 visor.setAuthenticated(user);
             }

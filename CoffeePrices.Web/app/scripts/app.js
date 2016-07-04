@@ -20,7 +20,7 @@ angular
   ])
   .config(function (visorProvider, $routeProvider) {
     visorProvider.authenticate = function ($cookieStore, $q, $rootScope) {
-        var user = $cookieStore.get("user");
+        var user = $cookieStore.get('user');
         if (user) {
             $rootScope.user = user;
                 return $q.when(user);
@@ -29,7 +29,7 @@ angular
         }
     };
     visorProvider.doOnNotAuthorized = function ($location, restrictedUrl) {
-        $location.url("/access_denied?prevUrl=" + encodeURIComponent(restrictedUrl));
+        $location.url('/access_denied?prevUrl=' + encodeURIComponent(restrictedUrl));
     };
     $routeProvider
       .when('/login', {
@@ -56,13 +56,4 @@ angular
       .otherwise({
         redirectTo: '/main'
       });
-  })
-  .controller("NavCtrl", function ($scope, $cookieStore, $rootScope, $route, visor, $location) {
-            $scope.$route = $route;
-            $scope.logout = function () {
-                $cookieStore.remove("user");
-                $rootScope.user = undefined;
-                visor.setUnauthenticated();
-                $location.url("/home");
-          }
-  })
+  });

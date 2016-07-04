@@ -10,4 +10,4 @@
 angular.module('coffeePricingApp')
   .controller('AccessDeniedCtrl', function ($scope, $routeParams) {
       $scope.prevUrl = $routeParams.prevUrl;
-  })
+  });

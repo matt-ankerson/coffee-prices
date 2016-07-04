@@ -11,9 +11,9 @@ angular.module('coffeePricingApp')
   .controller('MainCtrl', function ($scope, $cookieStore, $rootScope, $route, visor, $location) {
       $scope.$route = $route;
         $scope.logout = function () {
-        $cookieStore.remove("user");
+        $cookieStore.remove('user');
             $rootScope.user = undefined;
             visor.setUnauthenticated();
-            $location.url("/main");
-        }
+            $location.url('/main');
+        };
   });
