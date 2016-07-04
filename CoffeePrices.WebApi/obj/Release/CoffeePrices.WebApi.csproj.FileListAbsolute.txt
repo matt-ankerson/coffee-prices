@@ -47,5 +47,3 @@ C:\source\immersion\coffee_app\CoffeePrices.WebApi\bin\System.Web.Cors.dll
 C:\source\immersion\coffee_app\CoffeePrices.WebApi\bin\System.Web.Http.Cors.dll
 C:\source\immersion\coffee_app\CoffeePrices.WebApi\bin\System.Web.Http.Cors.xml
 C:\source\immersion\coffee_app\CoffeePrices.WebApi\obj\Release\CoffeePrices.WebApi.csprojResolveAssemblyReference.cache
-C:\source\immersion\coffee_app\CoffeePrices.WebApi\bin\scripts\scripts.b4eef2b8.js
-C:\source\immersion\coffee_app\CoffeePrices.WebApi\bin\scripts\vendor.32a1e5ce.js

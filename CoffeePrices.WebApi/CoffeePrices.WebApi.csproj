@@ -151,14 +151,10 @@
     <Content Include="images\yeoman.c582c4d1.png" />
     <Content Include="index.html" />
     <Content Include="robots.txt" />
-    <Content Include="scripts\scripts.b4eef2b8.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="scripts\vendor.32a1e5ce.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="styles\main.3884663f.css" />
-    <Content Include="styles\vendor.d41d8cd9.css" />
+    <Content Include="scripts\scripts.js" />
+    <Content Include="scripts\vendor.js" />
+    <Content Include="styles\main.css" />
+    <Content Include="styles\vendor.css" />
     <Content Include="views\access_denied.html" />
     <Content Include="views\login.html" />
     <Content Include="views\main.html" />

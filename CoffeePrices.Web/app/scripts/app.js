@@ -53,6 +53,9 @@ angular
         controller: 'AccessDeniedCtrl',
         controllerAs: 'access_denied'
       })
+      .when('/', {
+        redirectTo: '/main'
+      })
       .otherwise({
         redirectTo: '/main'
       });
