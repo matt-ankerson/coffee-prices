@@ -148,6 +148,7 @@
     <Content Include="bower_components\bootstrap-sass-official\assets\fonts\bootstrap\glyphicons-halflings-regular.svg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="images\coffee_icon.png" />
     <Content Include="images\yeoman.c582c4d1.png" />
     <Content Include="index.html" />
     <Content Include="robots.txt" />
