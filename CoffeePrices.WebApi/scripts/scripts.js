@@ -16,8 +16,20 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'visor'
+    'visor',
+    'chart.js'
   ])
+  .config(['ChartJsProvider', function (ChartJsProvider) {
+    // Configure all charts
+    ChartJsProvider.setOptions({
+      colours: ['#FF5252', '#FF8A80'],
+      responsive: true
+    });
+    // Configure all line charts
+    ChartJsProvider.setOptions('Line', {
+      datasetFill: false
+    });
+  }])
   .config(function (visorProvider, $routeProvider) {
     visorProvider.authenticate = function ($cookieStore, $q, $rootScope) {
         var user = $cookieStore.get('user');
@@ -93,16 +105,38 @@ angular.module('coffeePricingApp')
  * Controller of the coffeePricingApp
  */
 angular.module('coffeePricingApp')
-  .controller('MainCtrl', function ($scope, $window, $cookieStore, $rootScope, $route, visor, $location) {
-      $scope.$route = $route;
-        $scope.logout = function () {
-        $cookieStore.remove('user');
-            $rootScope.user = undefined;
-            visor.setUnauthenticated();
-            $location.url('/main');
-            $window.location.reload();
-        };
-  });
+  .controller('MainCtrl', function ($scope, $window, $cookieStore, $rootScope, $route, visor, $location, $http) {
+      
+      // Request coffee price data.
+      $http({
+          url: 'https://www.quandl.com/api/v3/datasets/ODA/PCOFFOTM_USD.json?api_key=6o623SPMQGmieHAxPjLE',
+          method: 'GET'
+      })
+      .then(function(response) { 
+          if (!response) {return;}
+          var labels = [];
+          var data = [];
+          response.data.dataset.data.map(function(item){
+              labels.push(item[0]);
+              data.push(item[1]);
+          });
+
+          // Set up graph
+          $scope.labels = labels.slice(0, 12).reverse();
+          $scope.series = ['Price at End of Month'];
+          $scope.data = [data.slice(0, 12).reverse()];
+
+          $scope.options = {
+              animation: false,
+              bezierCurve: false
+          };
+          $scope.legend = true;
+
+          $scope.dataTitle = response.data.dataset.name;
+          $scope.description = response.data.dataset.description;
+      });
+
+});
 
 'use strict';
 
@@ -152,8 +186,8 @@ angular.module('coffeePricingApp')
 angular.module('coffeePricingApp')
     .service('authService', function() {
     
-    this.username = 'username';
-    this.password = 'password';
+    this.username = 'coff33prices';
+    this.password = 'pass@word1';
 
     this.credentialsValid = function(user, pass) {
         if ((this.username === user) && (this.password === pass)) {

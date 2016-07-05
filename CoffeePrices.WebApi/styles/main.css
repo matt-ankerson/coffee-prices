@@ -8803,3 +8803,7 @@ body {
     border-bottom: 0;
   }
 }
+/* line 93, ../../app/styles/main.scss */
+.footer {
+  border-top: none;
+}

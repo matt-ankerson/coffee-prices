@@ -11,8 +11,8 @@
 angular.module('coffeePricingApp')
     .service('authService', function() {
     
-    this.username = 'username';
-    this.password = 'password';
+    this.username = 'coff33prices';
+    this.password = 'pass@word1';
 
     this.credentialsValid = function(user, pass) {
         if ((this.username === user) && (this.password === pass)) {

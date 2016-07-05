@@ -16,8 +16,20 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'visor'
+    'visor',
+    'chart.js'
   ])
+  .config(['ChartJsProvider', function (ChartJsProvider) {
+    // Configure all charts
+    ChartJsProvider.setOptions({
+      colours: ['#FF5252', '#FF8A80'],
+      responsive: true
+    });
+    // Configure all line charts
+    ChartJsProvider.setOptions('Line', {
+      datasetFill: false
+    });
+  }])
   .config(function (visorProvider, $routeProvider) {
     visorProvider.authenticate = function ($cookieStore, $q, $rootScope) {
         var user = $cookieStore.get('user');
