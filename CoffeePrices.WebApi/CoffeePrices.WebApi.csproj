@@ -178,6 +178,9 @@
     <Content Include="bower_components\bootstrap-sass-official\assets\fonts\bootstrap\glyphicons-halflings-regular.woff2" />
     <None Include="Project_Readme.html" />
     <None Include="Properties\PublishProfiles\CoffeePrices.pubxml" />
+    <None Include="Properties\PublishProfiles\CoffeePricesPackage.pubxml" />
+    <None Include="Properties\PublishProfiles\coffeepricing - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\coffeepricing - Web Deploy.pubxml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
